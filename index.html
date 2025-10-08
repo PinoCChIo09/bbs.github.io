@@ -535,26 +535,30 @@ Raah is still in development, with its world and story evolving with each tide.
       </div>
     </div>
   </footer>
-<script>
-  const emailLink = document.getElementById('copy-email');
-  const tooltip = document.getElementById('copy-tooltip');
-  const email = 'bondbreakerstudios@gmail.com';
+  <script>
+  // Select all images
+  const images = document.querySelectorAll('img');
 
-  emailLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText(email).then(() => {
-      tooltip.classList.remove('opacity-0');
-      tooltip.classList.add('opacity-100');
-
-      setTimeout(() => {
-        tooltip.classList.remove('opacity-100');
-        tooltip.classList.add('opacity-0');
-      }, 1500); // Tooltip visible for 1.5s
-    }).catch(err => {
-      console.error('Failed to copy email: ', err);
+  images.forEach(img => {
+    // Block right-click
+    img.addEventListener('contextmenu', e => {
+      e.preventDefault();
+      //alert('Image download is disabled.');
     });
+
+    // Block dragging
+    img.addEventListener('dragstart', e => e.preventDefault());
+
+    // Block long-press on mobile (touch & hold)
+    img.addEventListener('touchstart', e => {
+      e.preventDefault(); // prevent long-press menu
+    }, { passive: false });
+
+    // Optional: block selection
+    img.addEventListener('selectstart', e => e.preventDefault());
   });
 </script>
+
 <script>
   const titles = ["RAAH", "राह"];
   let index = 0;
