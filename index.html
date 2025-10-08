@@ -535,27 +535,37 @@ Raah is still in development, with its world and story evolving with each tide.
       </div>
     </div>
   </footer>
-  <script>
-  // Select all images
+ <script>
   const images = document.querySelectorAll('img');
 
   images.forEach(img => {
     // Block right-click
     img.addEventListener('contextmenu', e => {
       e.preventDefault();
-      //alert('Image download is disabled.');
+      alert('Image download is disabled.');
     });
 
     // Block dragging
-    //img.addEventListener('dragstart', e => e.preventDefault());
+    img.addEventListener('dragstart', e => e.preventDefault());
 
-    // Block long-press on mobile (touch & hold)
+    // Long-press alert on mobile
+    let touchTimer;
     img.addEventListener('touchstart', e => {
-      e.preventDefault(); // prevent long-press menu
-    }, { passive: false });
+      // Only trigger long-press if single touch
+      if (e.touches.length === 1) {
+        touchTimer = setTimeout(() => {
+          alert('Image download is disabled.');
+        }, 500); // long-press threshold
+      }
+    }, { passive: true });
 
-    // Optional: block selection
-    img.addEventListener('selectstart', e => e.preventDefault());
+    img.addEventListener('touchend', () => {
+      clearTimeout(touchTimer);
+    });
+
+    // **Allow scroll behind image**: make image not block normal pointer events
+    img.style.touchAction = 'manipulation';
+    img.style.pointerEvents = 'auto';
   });
 </script>
 
@@ -653,4 +663,5 @@ Raah is still in development, with its world and story evolving with each tide.
   
 </body>
 </html>
+
 
