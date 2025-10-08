@@ -542,7 +542,7 @@ Raah is still in development, with its world and story evolving with each tide.
     // Block right-click
     img.addEventListener('contextmenu', e => {
       e.preventDefault();
-      alert('Image download is disabled.');
+      //alert('Image download is disabled.');
     });
 
     // Block dragging
@@ -554,7 +554,7 @@ Raah is still in development, with its world and story evolving with each tide.
       // Only trigger long-press if single touch
       if (e.touches.length === 1) {
         touchTimer = setTimeout(() => {
-          alert('Image download is disabled.');
+          //alert('Image download is disabled.');
         }, 500); // long-press threshold
       }
     }, { passive: true });
@@ -663,5 +663,6 @@ Raah is still in development, with its world and story evolving with each tide.
   
 </body>
 </html>
+
 
 
