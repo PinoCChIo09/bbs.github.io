@@ -144,40 +144,56 @@ backdrop-filter: blur(16px);
       </div>
     </div>
   </nav>
-
   <!-- Hero Section -->
   <section id="home" class="hero-height flex items-center hero-gradient relative overflow-hidden pt-20">
     <div id="vanta-waves" class="absolute top-0 left-0 w-full h-full"></div>
     <div class="absolute inset-0 bg-gradient-to-b from-dark/0 via-dark/80 to-dark/90 z-0"></div>
-    <div class="absolute inset-0 overflow-hidden">
+    
+    <!-- Desktop Hero Content -->
+    <div class="absolute inset-0 overflow-hidden hidden md:block">
       <div class="absolute -bottom-20 -left-20 w-96 h-96 rounded-full bg-primary/10 blur-3xl"></div>
       <div class="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-accent/10 blur-3xl"></div>
-      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl">
-        <img src="http://static.photos/blue/1024x576/1" alt="Raah Game Character" class="w-full h-auto object-contain opacity-80 animate-float">
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4">
+        <img src="http://static.photos/blue/1200x630/1" alt="Raah Game Character" class="w-full h-auto object-contain opacity-80" style="max-height: 70vh">
+      </div>
+    </div>
+    
+    <!-- Mobile Hero Content -->
+    <div class="absolute inset-0 overflow-hidden md:hidden">
+      <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4">
+        <img src="http://static.photos/blue/640x360/1" alt="Raah Game Character Mobile" class="w-full h-auto object-contain opacity-80" style="max-height: 50vh">
       </div>
     </div>
     
     <div class="container mx-auto px-4 relative z-10">
-      <div class="max-w-2xl mx-auto text-center" data-aos="fade-up">
+      <!-- Desktop Title -->
+      <div class="max-w-2xl mx-auto text-center hidden md:block" data-aos="fade-up">
         <h1 class="text-6xl md:text-8xl font-bold mb-6">
           <span class="shimmer-text">RAAH</span>
         </h1>
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <h1 class="text-8xl md:text-[12rem] font-bold opacity-5 tracking-wider" style="z-index: -1;">RAAH</h1>
+        </div>
         <p class="text-xl md:text-2xl text-blue-200 mb-8 leading-relaxed font-medium max-w-2xl mx-auto">
           <span class="text-blue-400 font-semibold">A Fisherman's Journey</span> - Dive into the adventure of a lifetime
-</p>
-        <div class="flex flex-wrap gap-6 justify-center">
-          <a href="#trailer" class="bg-gradient-to-r from-accent to-orange-600 hover:from-accent hover:to-orange-700 text-white px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 flex items-center gap-3 shadow-xl shadow-accent/30 hover:shadow-accent/40">
-            <i data-feather="play-circle" class="w-5 h-5 animate-pulse"></i> WATCH TRAILER
-          </a>
-          <a href="#game" class="border-2 border-primary/50 hover:border-primary text-primary hover:bg-primary/10 px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105">
-            EXPLORE GAME
-          </a>
-        </div>
+        </p>
+      </div>
+      
+      <!-- Mobile Title -->
+      <div class="max-w-xs mx-auto text-center md:hidden" data-aos="fade-up">
+        <h1 class="text-5xl font-bold mb-4">
+          <span class="shimmer-text">RAAH</span>
+        </h1>
+        <p class="text-lg text-blue-200 mb-6 leading-relaxed font-medium">
+          <span class="text-blue-400 font-semibold">A Fisherman's Journey</span>
+        </p>
+        <a href="#game" class="bg-accent/90 hover:bg-accent text-white px-6 py-3 rounded-full font-medium transition-colors">
+          Explore Now
+        </a>
       </div>
     </div>
   </section>
-
-  <!-- Trailer Section -->
+<!-- Trailer Section -->
   <section id="trailer" class="py-24 bg-gradient-to-b from-dark to-slate-900 relative overflow-hidden">
     <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
     <div class="container mx-auto px-4">
@@ -279,16 +295,16 @@ backdrop-filter: blur(16px);
         <div class="lg:w-1/2" data-aos="fade-left" data-aos-delay="200">
           <div class="relative group">
             <div class="absolute -inset-4 bg-gradient-to-r from-accent to-primary rounded-3xl opacity-30 blur-xl group-hover:opacity-40 transition-all duration-500"></div>
-            <img src="http://static.photos/blue/640x360/1" alt="Raah Gameplay" class="relative rounded-2xl w-full transform group-hover:scale-[1.02] transition-transform duration-500 shadow-xl shadow-primary/20 border border-slate-800/50">
-            <div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-accent/30 transition-all duration-300 pointer-events-none"></div>
+          <img src="http://static.photos/blue/640x360/1" alt="Raah Gameplay" class="relative rounded-2xl w-full transform group-hover:scale-[1.02] transition-transform duration-500 shadow-xl shadow-primary/20 border border-slate-800/50" style="max-height: 50vh">
+<div class="absolute inset-0 rounded-2xl border-2 border-transparent group-hover:border-accent/30 transition-all duration-300 pointer-events-none"></div>
           </div>
           <div class="grid grid-cols-2 gap-4 mt-6">
             <div class="relative group" data-aos="fade-up" data-aos-delay="300">
-              <img src="http://static.photos/blue/320x240/2" alt="Raah Screenshot" class="rounded-xl w-full h-full object-cover border border-slate-800/50 group-hover:border-accent/50 transition-all duration-300">
-            </div>
+            <img src="http://static.photos/blue/320x240/2" alt="Raah Screenshot" class="rounded-xl w-full h-full object-cover border border-slate-800/50 group-hover:border-accent/50 transition-all duration-300" style="max-height: 30vh">
+</div>
             <div class="relative group" data-aos="fade-up" data-aos-delay="400">
-              <img src="http://static.photos/blue/320x240/3" alt="Raah Screenshot" class="rounded-xl w-full h-full object-cover border border-slate-800/50 group-hover:border-accent/50 transition-all duration-300">
-            </div>
+            <img src="http://static.photos/blue/320x240/3" alt="Raah Screenshot" class="rounded-xl w-full h-full object-cover border border-slate-800/50 group-hover:border-accent/50 transition-all duration-300" style="max-height: 30vh">
+</div>
           </div>
         </div>
       </div>
@@ -389,7 +405,6 @@ backdrop-filter: blur(16px);
       </div>
     </div>
   </section>
-
   <!-- Contact Section -->
   <section id="contact" class="py-24 bg-gradient-to-b from-slate-900 to-dark">
     <div class="container mx-auto px-4">
@@ -409,8 +424,8 @@ backdrop-filter: blur(16px);
             <a href="mailto:contact@bondbreakerstudios.com" class="bg-primary/10 hover:bg-primary/20 text-primary px-6 py-4 rounded-lg font-medium transition-colors flex items-center gap-3">
               <i data-feather="mail" class="w-5 h-5"></i> Email Us
             </a>
-            <a href="#" class="bg-secondary/10 hover:bg-secondary/20 text-secondary px-6 py-4 rounded-lg font-medium transition-colors flex items-center gap-3">
-              <i data-feather="message-square" class="w-5 h-5"></i> Discord
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYexample" target="_blank" class="bg-secondary/10 hover:bg-secondary/20 text-secondary px-6 py-4 rounded-lg font-medium transition-colors flex items-center gap-3">
+              <i data-feather="edit" class="w-5 h-5"></i> Feedback Form
             </a>
           </div>
         </div>
@@ -418,7 +433,53 @@ backdrop-filter: blur(16px);
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Social Media Section -->
+  <section class="py-16 bg-dark relative overflow-hidden">
+    <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10 mix-blend-overlay"></div>
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16" data-aos="fade-up">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Join Our Journey</span>
+        </h2>
+        <p class="text-slate-400 max-w-2xl mx-auto text-lg">Follow us for behind-the-scenes, updates, and community events</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+<!-- YouTube -->
+        <a href="https://youtube.com" target="_blank" class="group glass-card hover:border-primary/50 p-8 rounded-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+          <div class="flex flex-col items-center justify-center text-center">
+            <div class="w-16 h-16 bg-red-600/20 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-600/30 transition-colors duration-300">
+              <i data-feather="youtube" class="text-red-500 w-8 h-8 group-hover:text-red-400 transition-colors duration-300"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">YouTube</h3>
+            <p class="text-slate-400 text-sm">Dev logs, trailers, and gameplay</p>
+          </div>
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" class="group glass-card hover:border-pink-500/50 p-8 rounded-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div class="flex flex-col items-center justify-center text-center">
+            <div class="w-16 h-16 bg-pink-600/20 rounded-full flex items-center justify-center mb-4 group-hover:bg-pink-600/30 transition-colors duration-300">
+              <i data-feather="instagram" class="text-pink-500 w-8 h-8 group-hover:text-pink-400 transition-colors duration-300"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Instagram</h3>
+            <p class="text-slate-400 text-sm">Screenshots and art previews</p>
+          </div>
+        </a>
+
+        <!-- Twitter -->
+        <a href="https://twitter.com" target="_blank" class="group glass-card hover:border-blue-400/50 p-8 rounded-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+          <div class="flex flex-col items-center justify-center text-center">
+            <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-500/30 transition-colors duration-300">
+              <i data-feather="twitter" class="text-blue-400 w-8 h-8 group-hover:text-blue-300 transition-colors duration-300"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Twitter</h3>
+            <p class="text-slate-400 text-sm">Updates and announcements</p>
+          </div>
+        </a>
+</div>
+    </div>
+  </section>
+<!-- Footer -->
   <footer class="py-16 bg-dark/95 border-t border-slate-800/50">
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row justify-between items-center">
