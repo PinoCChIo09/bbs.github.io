@@ -47,31 +47,39 @@
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-      @keyframes colorSlide {
-        0% { 
-          background-position: 0% 50%;
-          background-size: 200% 200%;
-        }
-        50% {
-          background-position: 100% 50%;
-          background-size: 200% 200%;
-        }
-        100% {
-          background-position: 0% 50%;
-          background-size: 200% 200%;
-        }
-      }
-      .shimmer-text {
-        background: linear-gradient(45deg, #3b82f6, #10b981, #f59e0b, #3b82f6);
-        background-size: 300% 300%;
-        -webkit-background-clip: text !important;
-        background-clip: text !important;
-        color: transparent !important;
-        animation: colorSlide 6s ease infinite;
-        display: inline-block;
-        position: relative;
-        z-index: 10;
-      }
+@keyframes colorSlide {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(
+    45deg,
+    #1e3a8a,  /* deep blue */
+    #2563eb,  /* bright blue */
+    #06b6d4,  /* cyan */
+    #10b981,  /* emerald green */
+    #3b82f6   /* blue */
+  );
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: colorSlide 0.8s linear infinite;
+  display: inline-block;
+  position: relative;
+  z-index: 10;
+  text-shadow: 0 0 8px rgba(0, 255, 200, 0.3);
+}
+
+
       .animate-float {
         transform: translateY(0px) rotate(0deg);
       }
@@ -136,6 +144,20 @@ backdrop-filter: blur(16px);
         transform: rotate(10deg) scale(1.1);
         color: #f59e0b;
       }
+
+    .heroTitle {
+  display: inline-block;
+  transition: transform 0.8s ease, opacity 0.8s ease, filter 0.8s ease;
+}
+
+.heroTitle.switching {
+  opacity: 0;
+  transform: scale(0.9);
+  filter: blur(4px);
+}
+
+
+
     </style>
 </head>
 <body class="bg-dark">
@@ -154,9 +176,9 @@ backdrop-filter: blur(16px);
           <a href="#contact" class="nav-link text-slate-300 hover:text-white px-3 py-2 font-medium">Contact</a>
         </div>
         <div class="flex items-center space-x-6">
-          <a href="#" class="text-slate-400 hover:text-accent transition-colors"><i data-feather="youtube" class="w-5 h-5"></i></a>
-          <a href="#" class="text-slate-400 hover:text-pink-500 transition-colors"><i data-feather="instagram" class="w-5 h-5"></i></a>
-          <a href="#" class="text-slate-400 hover:text-blue-400 transition-colors"><i data-feather="twitter" class="w-5 h-5"></i></a>
+          <a href="https://www.youtube.com/@BondBreakerStudios" target="_blank" class="text-slate-400 hover:text-accent transition-colors"><i data-feather="youtube" class="w-5 h-5"></i></a>
+          <a href="https://www.instagram.com/bondbreakerig?igsh=Nmwya3gzeHo4OGdz" target="_blank" class="text-slate-400 hover:text-pink-500 transition-colors"><i data-feather="instagram" class="w-5 h-5"></i></a>
+          <a href="https://x.com/BondBreakerX" target="_blank" class="text-slate-400 hover:text-blue-400 transition-colors"><i data-feather="twitter" class="w-5 h-5"></i></a>
         </div>
       </div>
     </div>
@@ -188,21 +210,21 @@ backdrop-filter: blur(16px);
       <div class="max-w-2xl mx-auto text-center hidden md:block" data-aos="fade-up">
         <div class="relative">
           <h1 class="text-6xl md:text-8xl font-bold mb-6 relative">
-            <span class="shimmer-text animate-float">RAAH</span>
+            <span  class="heroTitle shimmer-text animate-float">RAAH</span>
           </h1>
 <div class="absolute inset-0 flex items-center justify-center pointer-events-none -z-10">
-            <h1 class="text-8xl md:text-[12rem] font-bold opacity-5 tracking-wider">RAAH</h1>
+            <h1  class="heroTitle text-8xl md:text-[12rem] font-bold opacity-5 tracking-wider">RAAH</h1>
           </div>
         </div>
 <p class="text-xl md:text-2xl text-blue-200 mb-8 leading-relaxed font-medium max-w-2xl mx-auto">
-          <span class="text-blue-400 font-semibold">A Fisherman's Journey</span> - Dive into the adventure of a lifetime
+          <span class="text-blue-400 font-semibold">A Fisherman's Journey</span>
         </p>
       </div>
       
       <!-- Mobile Title -->
       <div class="max-w-xs mx-auto text-center md:hidden" data-aos="fade-up">
         <h1 class="text-5xl font-bold mb-4">
-          <span class="shimmer-text animate-float">RAAH</span>
+          <span  class="heroTitle shimmer-text animate-float">RAAH</span>
         </h1>
 <p class="text-lg text-blue-200 mb-6 leading-relaxed font-medium">
           <span class="text-blue-400 font-semibold">A Fisherman's Journey</span>
@@ -219,20 +241,20 @@ backdrop-filter: blur(16px);
     <div class="container mx-auto px-4">
       <div class="text-center mb-16" data-aos="fade-up">
         <h2 class="text-4xl md:text-6xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Trailer</span>
+          <span class="bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">Coming soon</span>
         </h2>
         <p class="text-slate-400 max-w-2xl mx-auto text-lg">Immerse yourself in the world of RAAH</p>
       </div>
       <div class="max-w-7xl mx-auto glass-card rounded-3xl p-1 overflow-hidden trailer-container" data-aos="zoom-in">
         <div class="aspect-w-16 aspect-h-9">
           <div class="w-full h-full rounded-2xl overflow-hidden relative">
-            <iframe class="w-full h-full min-h-[500px]" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="w-full h-full min-h-[500px]" src="https://www.youtube.com/embed/wjaNheogOKM?si=HQzZwu6iw6sjzVml" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="absolute inset-0 bg-gradient-to-t from-dark/40 to-transparent pointer-events-none"></div>
           </div>
         </div>
         <div class="p-8 text-center bg-slate-900/50 rounded-b-3xl">
-          <h3 class="text-3xl font-bold mb-2 text-blue-100">Official Game Trailer</h3>
-          <p class="text-blue-300 font-medium">Experience the breathtaking visuals and gameplay of RAAH</p>
+          <h3 class="text-3xl font-bold mb-2 text-blue-100">Official Game Teaser</h3>
+          <p class="text-blue-300 font-medium">Experience the breathtaking story and gameplay of RAAH on mobile.</p>
         </div>
       </div>
 </div>
@@ -339,16 +361,16 @@ Raah is still in development, with its world and story evolving with each tide.
         <h2 class="text-4xl md:text-6xl font-bold mb-6">
           <span class="bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent">Bond Breaker Studios</span>
         </h2>
-        <p class="text-slate-400 max-w-3xl mx-auto text-lg">Small team, big dreams - crafting immersive mobile experiences</p>
+        <p class="text-slate-400 max-w-3xl mx-auto text-lg">Small team, big dreams - crafting immersive game experiences</p>
       </div>
 
       <div class="max-w-5xl mx-auto glass-card rounded-3xl p-8 hover:border-accent/50 transition-all duration-300" data-aos="zoom-in">
         <h3 class="text-3xl font-bold mb-6 text-white">Our Vision</h3>
         <p class="text-slate-400 mb-6 text-lg leading-relaxed">
-          Founded by three passionate game developers who met during their university days, Bond Breaker Studios was born from a shared love for aquatic environments and role-playing adventures.
+          Bond Breaker Studios started on a simple coffee break. Three friends, a shared love for gaming, and a spark of “let's make something of our own.” We had limited know-how, but our passion was limitless.
         </p>
         <p class="text-slate-400 text-lg leading-relaxed">
-          With Raah: A Fisherman's Journey, we're combining stunning visuals with deep RPG mechanics to create a mobile experience that transports players to serene yet adventurous waters.
+         With Raah: A Fisherman's Journey, we're bringing players into serene yet adventurous waters, blending stunning visuals with deep RPG gameplay. It's our love for games, turned into an experience we hope you'll never forget.
         </p>
         <div class="mt-8 flex flex-wrap gap-4">
           <div class="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">Mobile RPG</div>
@@ -418,15 +440,18 @@ Raah is still in development, with its world and story evolving with each tide.
       <div class="max-w-2xl mx-auto glass-card rounded-3xl p-8 hover:border-accent/50 transition-all duration-300" data-aos="zoom-in">
         <div class="text-center">
           <h3 class="text-2xl font-bold mb-6 text-white">Contact Us</h3>
-          <p class="text-slate-400 mb-8">We'd love to hear from you! Reach out for press inquiries, partnerships, or just to say hello.</p>
+          <p class="text-slate-400 mb-8">We'd love to hear from you! Reach out for press inquiries, partnerships, or just to say hello. Click on the email address to copy it.</p>
           
           <div class="flex flex-col sm:flex-row gap-6 justify-center">
-            <a href="mailto:contact@bondbreakerstudios.com" class="bg-primary/10 hover:bg-primary/20 text-primary px-6 py-4 rounded-lg font-medium transition-colors flex items-center gap-3">
-              <i data-feather="mail" class="w-5 h-5"></i> Email Us
-            </a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYexample" target="_blank" class="bg-secondary/10 hover:bg-secondary/20 text-secondary px-6 py-4 rounded-lg font-medium transition-colors flex items-center gap-3">
-              <i data-feather="edit" class="w-5 h-5"></i> Feedback Form
-            </a>
+           <a href="#" 
+   id="copy-email" 
+   class="bg-primary/10 hover:bg-primary/20 text-primary px-6 py-4 rounded-lg font-medium transition-colors flex items-center gap-3 relative">
+   <i data-feather="mail" class="w-5 h-5"></i> bondbreakerstudios@gmail.com
+   <span id="copy-tooltip" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-sm px-3 py-1 rounded opacity-0 pointer-events-none transition-opacity duration-300">
+     Copied!
+   </span>
+</a>
+           
           </div>
         </div>
       </div>
@@ -445,7 +470,7 @@ Raah is still in development, with its world and story evolving with each tide.
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
 <!-- YouTube -->
-        <a href="https://youtube.com" target="_blank" class="group glass-card hover:border-primary/50 p-8 rounded-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+        <a href="https://www.youtube.com/@BondBreakerStudios" target="_blank" class="group glass-card hover:border-primary/50 p-8 rounded-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
           <div class="flex flex-col items-center justify-center text-center">
             <div class="w-16 h-16 bg-red-600/20 rounded-full flex items-center justify-center mb-4 group-hover:bg-red-600/30 transition-colors duration-300">
               <i data-feather="youtube" class="text-red-500 w-8 h-8 group-hover:text-red-400 transition-colors duration-300"></i>
@@ -456,7 +481,7 @@ Raah is still in development, with its world and story evolving with each tide.
         </a>
 
         <!-- Instagram -->
-        <a href="https://instagram.com" target="_blank" class="group glass-card hover:border-pink-500/50 p-8 rounded-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+        <a href="https://www.instagram.com/bondbreakerig?igsh=Nmwya3gzeHo4OGdz" target="_blank" class="group glass-card hover:border-pink-500/50 p-8 rounded-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
           <div class="flex flex-col items-center justify-center text-center">
             <div class="w-16 h-16 bg-pink-600/20 rounded-full flex items-center justify-center mb-4 group-hover:bg-pink-600/30 transition-colors duration-300">
               <i data-feather="instagram" class="text-pink-500 w-8 h-8 group-hover:text-pink-400 transition-colors duration-300"></i>
@@ -467,12 +492,12 @@ Raah is still in development, with its world and story evolving with each tide.
         </a>
 
         <!-- Twitter -->
-        <a href="https://twitter.com" target="_blank" class="group glass-card hover:border-blue-400/50 p-8 rounded-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+        <a href="https://x.com/BondBreakerX" target="_blank" class="group glass-card hover:border-blue-400/50 p-8 rounded-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
           <div class="flex flex-col items-center justify-center text-center">
             <div class="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-500/30 transition-colors duration-300">
               <i data-feather="twitter" class="text-blue-400 w-8 h-8 group-hover:text-blue-300 transition-colors duration-300"></i>
             </div>
-            <h3 class="text-xl font-bold text-white mb-2">Twitter</h3>
+            <h3 class="text-xl font-bold text-white mb-2">X</h3>
             <p class="text-slate-400 text-sm">Updates and announcements</p>
           </div>
         </a>
@@ -488,13 +513,13 @@ Raah is still in development, with its world and story evolving with each tide.
           <p class="text-slate-500 mt-3">Crafting immersive mobile experiences</p>
         </div>
         <div class="flex space-x-6 mb-8 md:mb-0">
-          <a href="#" class="text-slate-500 hover:text-accent transition-colors" title="YouTube">
+          <a href="https://www.youtube.com/@BondBreakerStudios" target="_blank" class="text-slate-500 hover:text-accent transition-colors" title="YouTube">
             <i data-feather="youtube" class="w-5 h-5"></i>
           </a>
-          <a href="#" class="text-slate-500 hover:text-pink-500 transition-colors" title="Instagram">
+          <a href="https://www.instagram.com/bondbreakerig?igsh=Nmwya3gzeHo4OGdz" target="_blank" class="text-slate-500 hover:text-pink-500 transition-colors" title="Instagram">
             <i data-feather="instagram" class="w-5 h-5"></i>
           </a>
-          <a href="#" class="text-slate-500 hover:text-blue-400 transition-colors" title="Twitter">
+          <a href="https://x.com/BondBreakerX" target="_blank" class="text-slate-500 hover:text-blue-400 transition-colors" title="Twitter">
             <i data-feather="twitter" class="w-5 h-5"></i>
           </a>
         </div>
@@ -509,6 +534,51 @@ Raah is still in development, with its world and story evolving with each tide.
       </div>
     </div>
   </footer>
+<script>
+  const emailLink = document.getElementById('copy-email');
+  const tooltip = document.getElementById('copy-tooltip');
+  const email = 'bondbreakerstudios@gmail.com';
+
+  emailLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(() => {
+      tooltip.classList.remove('opacity-0');
+      tooltip.classList.add('opacity-100');
+
+      setTimeout(() => {
+        tooltip.classList.remove('opacity-100');
+        tooltip.classList.add('opacity-0');
+      }, 1500); // Tooltip visible for 1.5s
+    }).catch(err => {
+      console.error('Failed to copy email: ', err);
+    });
+  });
+</script>
+<script>
+  const titles = ["RAAH", "राह"];
+  let index = 0;
+
+  const heroTitles = document.querySelectorAll(".heroTitle");
+
+  function switchTitles() {
+    heroTitles.forEach(title => {
+      title.classList.add("switching");
+    });
+
+    setTimeout(() => {
+      index = (index + 1) % titles.length;
+
+      heroTitles.forEach(title => {
+        title.textContent = titles[index];
+        title.classList.remove("switching");
+      });
+    }, 800); // matches CSS transition time
+  }
+
+  // Switch every 30 seconds
+  setInterval(switchTitles, 6000);
+</script>
+
 
   <script>
     
