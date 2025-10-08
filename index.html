@@ -445,7 +445,7 @@ Raah is still in development, with its world and story evolving with each tide.
           <div class="flex flex-col sm:flex-row gap-6 justify-center">
            <a href="#" 
    id="copy-email" 
-   class="bg-primary/10 hover:bg-primary/20 text-primary px-6 py-4 rounded-lg font-medium transition-colors flex items-center gap-3 relative overflow-hidden">
+   class="bg-primary/10 hover:bg-primary/20 text-primary px-6 py-4 rounded-lg font-medium flex items-center gap-3 relative">
    
    <i data-feather="mail" class="w-5 h-5 flex-shrink-0"></i>
    
@@ -453,10 +453,11 @@ Raah is still in development, with its world and story evolving with each tide.
      bondbreakerstudios@gmail.com
    </span>
    
-   <span id="copy-tooltip" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-sm px-3 py-1 rounded opacity-0 pointer-events-none transition-opacity duration-300">
+   <span id="copy-tooltip" class="absolute -top-8 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-sm px-3 py-1 rounded opacity-0 pointer-events-none transition-all duration-300 z-50">
      Copied!
    </span>
 </a>
+
            
           </div>
         </div>
@@ -535,7 +536,8 @@ Raah is still in development, with its world and story evolving with each tide.
       </div>
     </div>
   </footer>
- <script>
+  <script>
+  // Select all images
   const images = document.querySelectorAll('img');
 
   images.forEach(img => {
@@ -545,27 +547,39 @@ Raah is still in development, with its world and story evolving with each tide.
       //alert('Image download is disabled.');
     });
 
-    // Block dragging
-    img.addEventListener('dragstart', e => e.preventDefault());
-
-    // Long-press alert on mobile
-    let touchTimer;
+   
+    // Block long-press on mobile (touch & hold)
     img.addEventListener('touchstart', e => {
-      // Only trigger long-press if single touch
-      if (e.touches.length === 1) {
-        touchTimer = setTimeout(() => {
-          //alert('Image download is disabled.');
-        }, 500); // long-press threshold
-      }
-    }, { passive: true });
+      e.preventDefault(); // prevent long-press menu
+    }, { passive: false });
 
-    img.addEventListener('touchend', () => {
-      clearTimeout(touchTimer);
+    // Optional: block selection
+    img.addEventListener('selectstart', e => e.preventDefault());
+  });
+</script>
+<script>
+  const emailLink = document.getElementById('copy-email');
+  const tooltip = document.getElementById('copy-tooltip');
+  const email = 'bondbreakerstudios@gmail.com';
+
+  emailLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(() => {
+      // Show tooltip
+      tooltip.classList.remove('opacity-0');
+      tooltip.classList.add('opacity-100');
+
+      // Move it above other elements
+      tooltip.style.transform = 'translate(-50%, -150%)';
+
+      setTimeout(() => {
+        // Hide tooltip
+        tooltip.classList.remove('opacity-100');
+        tooltip.classList.add('opacity-0');
+      }, 1500);
+    }).catch(err => {
+      console.error('Failed to copy email: ', err);
     });
-
-    // **Allow scroll behind image**: make image not block normal pointer events
-    img.style.touchAction = 'manipulation';
-    img.style.pointerEvents = 'auto';
   });
 </script>
 
@@ -660,30 +674,6 @@ Raah is still in development, with its world and story evolving with each tide.
     // Feather icons
     feather.replace();
   </script>
-    <script>
-  const emailLink = document.getElementById('copy-email');
-  const tooltip = document.getElementById('copy-tooltip');
-  const email = 'bondbreakerstudios@gmail.com';
-
-  emailLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText(email).then(() => {
-      tooltip.classList.remove('opacity-0');
-      tooltip.classList.add('opacity-100');
-
-      setTimeout(() => {
-        tooltip.classList.remove('opacity-100');
-        tooltip.classList.add('opacity-0');
-      }, 1500); // Tooltip visible for 1.5s
-    }).catch(err => {
-      console.error('Failed to copy email: ', err);
-    });
-  });
-</script>
   
 </body>
 </html>
-
-
-
-
