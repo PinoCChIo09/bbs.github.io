@@ -537,26 +537,40 @@ Raah is still in development, with its world and story evolving with each tide.
     </div>
   </footer>
   <script>
-  // Select all images
-  const images = document.querySelectorAll('img');
+const images = document.querySelectorAll('img');
 
-  images.forEach(img => {
-    // Block right-click
-    img.addEventListener('contextmenu', e => {
+images.forEach(img => {
+  // Block right-click on desktop
+  img.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Block drag on desktop
+  img.addEventListener('dragstart', e => e.preventDefault());
+
+  // Block long-press menu on mobile without blocking scroll
+  let touchTimer;
+
+  img.addEventListener('touchstart', e => {
+    // Start a timer when finger touches image
+    touchTimer = setTimeout(() => {
+      // If finger stays pressed > 600ms, prevent context menu
       e.preventDefault();
-      //alert('Image download is disabled.');
-    });
+    }, 600);
+  }, { passive: true }); // passive: true allows scroll
 
-   
-    // Block long-press on mobile (touch & hold)
-    img.addEventListener('touchstart', e => {
-      e.preventDefault(); // prevent long-press menu
-    }, { passive: false });
-
-    // Optional: block selection
-    img.addEventListener('selectstart', e => e.preventDefault());
+  img.addEventListener('touchend', e => {
+    // Remove timer if finger lifts
+    clearTimeout(touchTimer);
   });
+
+  // Optional: prevent text selection
+  img.addEventListener('selectstart', e => e.preventDefault());
+
+  // Allow scrolling but prevent double-tap zoom
+  img.style.touchAction = 'manipulation';
+  img.style.userSelect = 'none';
+});
 </script>
+
 <script>
   const emailLink = document.getElementById('copy-email');
   const tooltip = document.getElementById('copy-tooltip');
@@ -677,3 +691,4 @@ Raah is still in development, with its world and story evolving with each tide.
   
 </body>
 </html>
+
