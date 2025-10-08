@@ -660,9 +660,30 @@ Raah is still in development, with its world and story evolving with each tide.
     // Feather icons
     feather.replace();
   </script>
+    <script>
+  const emailLink = document.getElementById('copy-email');
+  const tooltip = document.getElementById('copy-tooltip');
+  const email = 'bondbreakerstudios@gmail.com';
+
+  emailLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(email).then(() => {
+      tooltip.classList.remove('opacity-0');
+      tooltip.classList.add('opacity-100');
+
+      setTimeout(() => {
+        tooltip.classList.remove('opacity-100');
+        tooltip.classList.add('opacity-0');
+      }, 1500); // Tooltip visible for 1.5s
+    }).catch(err => {
+      console.error('Failed to copy email: ', err);
+    });
+  });
+</script>
   
 </body>
 </html>
+
 
 
 
