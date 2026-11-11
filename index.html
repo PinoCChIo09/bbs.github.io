@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Next Wave Incoming | Bond Breaker Studios</title>
 
@@ -11,108 +17,202 @@
         content="Bond Breaker Studios is preparing for the next monster wave. Check back soon."
     >
 
-    <meta name="theme-color" content="#17151a">
+    <meta
+        name="theme-color"
+        content="#100010"
+    >
 
-    <!-- Existing Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fonts -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&display=swap"
         rel="stylesheet"
     >
 
+    <!-- Favicon -->
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="logo.png"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="logo.png"
+    >
+
+
     <style>
 
+        /* =========================================
+           BOND BREAKER STUDIOS
+           MAIN WEBSITE COLOR PALETTE
+           ========================================= */
+
         :root {
-            --bg: #17151a;
-            --bg2: #211b22;
-            --panel: #29232a;
-            --cream: #f1e3c7;
-            --muted: #c2b5a5;
-            --gold: #d6a34a;
-            --red: #a83d32;
-            --red2: #c6533e;
-            --line: rgba(235,207,163,.18);
+
+            --bg: #100010;
+
+            --bg2: #180018;
+
+            --panel: #240018;
+
+            --cream: #F0E0C0;
+
+            --muted: #C8B9A5;
+
+            --gold: #F09000;
+
+            --red: #902020;
+
+            --red2: #B52A20;
+
+            --line: rgba(240, 144, 0, .20);
+
         }
+
+
+        /* =========================================
+           RESET
+           ========================================= */
 
         * {
             box-sizing: border-box;
         }
 
+
         html,
         body {
+
             width: 100%;
             height: 100%;
+
             margin: 0;
+
+            scroll-behavior: smooth;
+
         }
+
 
         body {
+
             overflow: hidden;
+
             background: var(--bg);
+
             color: var(--cream);
+
             font-family: "DM Sans", sans-serif;
+
         }
 
-        /* =========================
+
+        /* =========================================
            THREE.JS BACKGROUND
-        ========================= */
+           ========================================= */
 
         #scene {
+
             position: fixed;
+
             inset: 0;
+
             z-index: 0;
+
         }
+
 
         #scene canvas {
+
             width: 100% !important;
+
             height: 100% !important;
+
             display: block;
+
         }
 
-        /* Dark overlays keep the Three.js
-           scene consistent with your website */
+
+        /* =========================================
+           BACKGROUND OVERLAY
+           ========================================= */
+
         .background-overlay {
+
             position: fixed;
+
             inset: 0;
+
             z-index: 1;
+
             pointer-events: none;
 
             background:
+
                 radial-gradient(
                     ellipse at 50% 45%,
-                    rgba(137,65,69,.18),
+                    rgba(144, 32, 32, .18),
                     transparent 42%
                 ),
+
                 linear-gradient(
                     90deg,
-                    rgba(23,21,26,.92),
-                    rgba(23,21,26,.58),
-                    rgba(23,21,26,.88)
+                    rgba(16, 0, 16, .92),
+                    rgba(16, 0, 16, .58),
+                    rgba(16, 0, 16, .88)
                 );
+
         }
 
+
+        /* =========================================
+           BOTTOM FADE
+           ========================================= */
+
         .bottom-fade {
+
             position: fixed;
+
             left: 0;
             right: 0;
             bottom: 0;
+
             height: 220px;
+
             z-index: 2;
+
             pointer-events: none;
 
-            background: linear-gradient(
-                transparent,
-                var(--bg)
-            );
+            background:
+
+                linear-gradient(
+                    transparent,
+                    var(--bg)
+                );
+
         }
 
-        /* =========================
+
+        /* =========================================
            NAVIGATION
-        ========================= */
+           ========================================= */
 
         .topbar {
+
             position: fixed;
+
             top: 0;
             left: 0;
             right: 0;
@@ -121,82 +221,138 @@
 
             z-index: 10;
 
-            border-bottom: 1px solid rgba(255,255,255,.08);
+            border-bottom:
+                1px solid
+                rgba(240, 144, 0, .12);
 
-            background: rgba(20,17,22,.58);
+            background:
+                rgba(16, 0, 16, .58);
 
             backdrop-filter: blur(12px);
+
             -webkit-backdrop-filter: blur(12px);
+
         }
 
+
         .nav {
-            width: min(1180px, calc(100% - 42px));
+
+            width:
+                min(
+                    1180px,
+                    calc(100% - 42px)
+                );
+
             height: 100%;
+
             margin: auto;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
         }
+
 
         .brand {
+
             display: flex;
+
             align-items: center;
+
         }
 
+
         .brand-logo {
+
             width: 150px;
+
             height: 55px;
 
             object-fit: contain;
+
             object-position: left center;
+
         }
 
-        /* =========================
+
+        /* =========================================
            MAIN CONTENT
-        ========================= */
+           ========================================= */
 
         .content {
+
             position: relative;
 
             z-index: 5;
 
-            width: min(900px, calc(100% - 40px));
+            width:
+                min(
+                    900px,
+                    calc(100% - 40px)
+                );
 
             min-height: 100vh;
 
             margin: auto;
 
             display: flex;
+
             align-items: center;
+
             justify-content: center;
 
             text-align: center;
+
         }
 
+
         .content-inner {
+
             position: relative;
 
             margin-top: 30px;
 
-            animation: contentIn 1.2s ease forwards;
+            animation:
+                contentIn
+                1.2s
+                ease
+                forwards;
+
         }
+
 
         @keyframes contentIn {
 
             from {
+
                 opacity: 0;
-                transform: translateY(25px);
+
+                transform:
+                    translateY(25px);
+
             }
 
             to {
+
                 opacity: 1;
-                transform: translateY(0);
+
+                transform:
+                    translateY(0);
+
             }
 
         }
 
+
+        /* =========================================
+           EYEBROW
+           ========================================= */
+
         .eyebrow {
+
             margin-bottom: 20px;
 
             font-size: .72rem;
@@ -208,18 +364,28 @@
             color: var(--gold);
 
             font-weight: 700;
+
         }
 
+
+        /* =========================================
+           TITLE
+           ========================================= */
+
         .title {
+
             margin: 0;
 
-            font-family: "Barlow Condensed", sans-serif;
+            font-family:
+                "Barlow Condensed",
+                sans-serif;
 
-            font-size: clamp(
-                4rem,
-                10vw,
-                8rem
-            );
+            font-size:
+                clamp(
+                    4rem,
+                    10vw,
+                    8rem
+                );
 
             font-weight: 900;
 
@@ -229,16 +395,36 @@
 
             text-transform: uppercase;
 
+            color: var(--cream);
+
             text-shadow:
-                0 6px 25px rgba(0,0,0,.6);
+                0 6px 25px
+                rgba(0, 0, 0, .6);
+
         }
+
 
         .title span {
+
             color: var(--gold);
+
+            text-shadow:
+                0 0 35px
+                rgba(240, 144, 0, .12);
+
         }
 
+
+        /* =========================================
+           SUBTITLE
+           ========================================= */
+
         .subtitle {
-            margin: 28px auto 0;
+
+            margin:
+                28px
+                auto
+                0;
 
             max-width: 620px;
 
@@ -246,49 +432,71 @@
                 "IM Fell English",
                 serif;
 
-            font-size: clamp(
-                1.3rem,
-                2.5vw,
-                1.7rem
-            );
+            font-size:
+                clamp(
+                    1.3rem,
+                    2.5vw,
+                    1.7rem
+                );
 
             font-style: italic;
 
-            color: #f3d8a7;
+            color: var(--cream);
+
         }
 
+
+        /* =========================================
+           DESCRIPTION
+           ========================================= */
+
         .description {
+
             max-width: 520px;
 
-            margin: 16px auto 0;
+            margin:
+                16px
+                auto
+                0;
 
             color: var(--muted);
 
             font-size: 1rem;
 
             line-height: 1.7;
+
         }
 
-        /* =========================
+
+        /* =========================================
            WAVE STATUS
-        ========================= */
+           ========================================= */
 
         .wave-status {
+
             width: 260px;
 
-            margin: 35px auto 0;
+            margin:
+                35px
+                auto
+                0;
 
-            padding: 12px 20px;
+            padding:
+                12px
+                20px;
 
-            border: 1px solid rgba(214,163,74,.28);
+            border:
+                1px solid
+                rgba(240, 144, 0, .28);
 
             border-radius: 5px;
 
             background:
-                rgba(33,27,34,.7);
+                rgba(36, 0, 24, .72);
 
             box-shadow:
-                0 15px 40px rgba(0,0,0,.25);
+                0 15px 40px
+                rgba(0, 0, 0, .25);
 
             color: var(--gold);
 
@@ -299,12 +507,20 @@
             letter-spacing: .16em;
 
             text-transform: uppercase;
+
         }
 
+
+        /* =========================================
+           STATUS DOT
+           ========================================= */
+
         .status-dot {
+
             display: inline-block;
 
             width: 7px;
+
             height: 7px;
 
             margin-right: 8px;
@@ -314,38 +530,58 @@
             background: var(--red2);
 
             box-shadow:
-                0 0 12px rgba(198,83,62,.8);
+                0 0 12px
+                rgba(181, 42, 32, .8);
 
-            animation: pulse 1.5s infinite;
+            animation:
+                pulse
+                1.5s
+                infinite;
+
         }
+
 
         @keyframes pulse {
 
             0%,
             100% {
+
                 opacity: .4;
-                transform: scale(.8);
+
+                transform:
+                    scale(.8);
+
             }
 
             50% {
+
                 opacity: 1;
-                transform: scale(1.2);
+
+                transform:
+                    scale(1.2);
+
             }
 
         }
 
-        /* =========================
+
+        /* =========================================
            DECORATIVE DIVIDER
-        ========================= */
+           ========================================= */
 
         .divider {
+
             width: 180px;
 
             height: 1px;
 
-            margin: 35px auto 0;
+            margin:
+                35px
+                auto
+                0;
 
             background:
+
                 linear-gradient(
                     90deg,
                     transparent,
@@ -354,128 +590,222 @@
                 );
 
             opacity: .55;
+
         }
 
-        /* =========================
+
+        /* =========================================
            FOOTER
-        ========================= */
+           ========================================= */
 
         footer {
+
             position: fixed;
 
             left: 0;
             right: 0;
+
             bottom: 22px;
 
             z-index: 6;
 
             text-align: center;
 
-            color: #9e9285;
+            color:
+                rgba(240, 224, 192, .55);
 
             font-size: .75rem;
 
             letter-spacing: .04em;
+
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
 
-        @media(max-width:560px) {
+        /* =========================================
+           MOBILE
+           ========================================= */
+
+        @media(max-width: 560px) {
 
             .topbar {
+
                 height: 74px;
+
             }
+
 
             .nav {
-                width: calc(100% - 28px);
+
+                width:
+                    calc(100% - 28px);
+
             }
+
 
             .brand-logo {
+
                 width: 120px;
+
                 height: 45px;
+
             }
+
 
             .content {
-                width: calc(100% - 28px);
+
+                width:
+                    calc(100% - 28px);
+
             }
+
 
             .content-inner {
+
                 margin-top: 25px;
+
             }
+
 
             .title {
+
                 font-size: 4.4rem;
+
             }
+
 
             .subtitle {
+
                 font-size: 1.25rem;
+
             }
+
 
             .description {
+
                 font-size: .92rem;
+
             }
+
 
             .wave-status {
+
                 width: 240px;
+
             }
 
+
             footer {
+
                 bottom: 15px;
-                padding: 0 20px;
+
+                padding:
+                    0
+                    20px;
+
             }
+
         }
 
     </style>
+
 </head>
 
 
 <body>
 
-    <!-- THREE.JS CANVAS -->
+
+    <!-- =========================================
+         THREE.JS CANVAS
+         ========================================= -->
+
     <div id="scene"></div>
 
+
     <div class="background-overlay"></div>
+
+
     <div class="bottom-fade"></div>
 
 
-    <!-- =========================
+
+    <!-- =========================================
          HEADER
-    ========================= -->
+         ========================================= -->
+
+    <header class="topbar">
+
+        <nav class="nav">
+
+            <a
+                class="brand"
+                href="#"
+                aria-label="Bond Breaker Studios"
+            >
+
+                <img
+                    src="logo.png"
+                    alt="Bond Breaker Studios"
+                    class="brand-logo"
+                >
+
+            </a>
+
+        </nav>
+
+    </header>
 
 
 
-    <!-- =========================
+    <!-- =========================================
          MAIN
-    ========================= -->
+         ========================================= -->
 
     <main class="content">
 
         <div class="content-inner">
 
+
             <div class="eyebrow">
+
                 Bond Breaker Studios
+
             </div>
 
 
+
             <h1 class="title">
+
                 GETTING READY<br>
-                <span>FOR THE NEXT WAVE</span>
+
+                <span>
+                    FOR THE NEXT WAVE
+                </span>
+
             </h1>
 
 
+
             <p class="subtitle">
+
                 The monsters are gathering again.
+
             </p>
+
 
 
             <p class="description">
-                We're preparing the battlefield for what's coming next.
-                The site is temporarily offline while we work behind
-                the scenes. Visit again sometime soon to reveal what
-                awaits beyond the next wave.
+
+                We're preparing the battlefield
+                for what's coming next.
+
+                The site is temporarily offline
+                while we work behind the scenes.
+
+                Visit again sometime soon to reveal
+                what awaits beyond the next wave.
+
             </p>
+
 
 
             <div class="wave-status">
@@ -487,31 +817,47 @@
             </div>
 
 
+
             <div class="divider"></div>
+
 
         </div>
 
     </main>
 
 
+
+    <!-- =========================================
+         FOOTER
+         ========================================= -->
+
     <footer>
-        © <span id="year"></span> Bond Breaker Studios · The next wave is coming.
+
+        ©
+        <span id="year"></span>
+        Bond Breaker Studios
+        ·
+        The next wave is coming.
+
     </footer>
 
 
-    <!-- =========================
+
+    <!-- =========================================
          THREE.JS
-    ========================= -->
+         ========================================= -->
 
     <script type="module">
+
 
         import * as THREE from
             "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js";
 
 
-        /* =========================
+
+        /* =========================================
            SETUP
-        ========================= */
+           ========================================= */
 
         const container =
             document.getElementById("scene");
@@ -523,10 +869,16 @@
 
         const camera =
             new THREE.PerspectiveCamera(
+
                 55,
-                window.innerWidth / window.innerHeight,
+
+                window.innerWidth /
+                window.innerHeight,
+
                 0.1,
+
                 100
+
             );
 
 
@@ -537,21 +889,33 @@
         );
 
 
+
         const renderer =
             new THREE.WebGLRenderer({
+
                 antialias: true,
+
                 alpha: true
+
             });
 
 
         renderer.setPixelRatio(
-            Math.min(window.devicePixelRatio, 2)
+
+            Math.min(
+                window.devicePixelRatio,
+                2
+            )
+
         );
 
 
         renderer.setSize(
+
             window.innerWidth,
+
             window.innerHeight
+
         );
 
 
@@ -560,81 +924,116 @@
         );
 
 
-        /* =========================
+
+        /* =========================================
            LIGHTING
-        ========================= */
+           ========================================= */
 
         const ambient =
             new THREE.AmbientLight(
-                0xf1e3c7,
+
+                0xF0E0C0,
+
                 1.2
+
             );
 
 
         scene.add(ambient);
 
 
+
         const redLight =
             new THREE.PointLight(
-                0xa83d32,
+
+                0x902020,
+
                 18,
+
                 20
+
             );
 
 
         redLight.position.set(
+
             -3,
+
             1,
+
             3
+
         );
 
 
         scene.add(redLight);
 
 
+
         const goldLight =
             new THREE.PointLight(
-                0xd6a34a,
+
+                0xF09000,
+
                 14,
+
                 18
+
             );
 
 
         goldLight.position.set(
+
             3,
+
             2,
+
             2
+
         );
 
 
         scene.add(goldLight);
 
 
-        /* =========================
+
+        /* =========================================
            CENTRAL WAVE RING
-        ========================= */
+           ========================================= */
 
         const ringGeometry =
             new THREE.TorusGeometry(
+
                 2.2,
+
                 0.025,
+
                 16,
+
                 120
+
             );
 
 
         const ringMaterial =
             new THREE.MeshBasicMaterial({
-                color: 0xd6a34a,
+
+                color: 0xF09000,
+
                 transparent: true,
+
                 opacity: 0.25
+
             });
 
 
         const ring =
             new THREE.Mesh(
+
                 ringGeometry,
+
                 ringMaterial
+
             );
 
 
@@ -649,31 +1048,44 @@
         scene.add(ring);
 
 
-        /* =========================
+
+        /* =========================================
            SECOND RING
-        ========================= */
+           ========================================= */
 
         const ring2Geometry =
             new THREE.TorusGeometry(
+
                 3.1,
+
                 0.012,
+
                 12,
+
                 120
+
             );
 
 
         const ring2Material =
             new THREE.MeshBasicMaterial({
-                color: 0xa83d32,
+
+                color: 0x902020,
+
                 transparent: true,
+
                 opacity: 0.18
+
             });
 
 
         const ring2 =
             new THREE.Mesh(
+
                 ring2Geometry,
+
                 ring2Material
+
             );
 
 
@@ -688,58 +1100,90 @@
         scene.add(ring2);
 
 
-        /* =========================
+
+        /* =========================================
            FLOATING CRYSTALS
-        ========================= */
+           ========================================= */
 
         const crystalGeometry =
             new THREE.OctahedronGeometry(
+
                 0.08,
+
                 0
+
             );
 
 
         const crystalMaterials = [
 
             new THREE.MeshBasicMaterial({
-                color: 0xd6a34a,
+
+                color: 0xF09000,
+
                 transparent: true,
+
                 opacity: .55
+
             }),
 
+
             new THREE.MeshBasicMaterial({
-                color: 0xa83d32,
+
+                color: 0x902020,
+
                 transparent: true,
+
                 opacity: .45
+
             }),
 
+
             new THREE.MeshBasicMaterial({
-                color: 0xf1e3c7,
+
+                color: 0xF0E0C0,
+
                 transparent: true,
+
                 opacity: .3
+
             })
 
         ];
 
 
+
         const crystals = [];
 
 
+
         for (
+
             let i = 0;
+
             i < 55;
+
             i++
+
         ) {
+
 
             const crystal =
                 new THREE.Mesh(
+
                     crystalGeometry,
+
                     crystalMaterials[
+
                         Math.floor(
+
                             Math.random() *
                             crystalMaterials.length
+
                         )
+
                     ]
+
                 );
 
 
@@ -779,20 +1223,27 @@
 
 
             crystals.push({
+
                 mesh: crystal,
+
                 speed:
                     .0003 +
                     Math.random() * .001,
+
                 offset:
-                    Math.random() * Math.PI * 2
+                    Math.random() *
+                    Math.PI *
+                    2
+
             });
 
         }
 
 
-        /* =========================
+
+        /* =========================================
            PARTICLE FIELD
-        ========================= */
+           ========================================= */
 
         const particleCount = 500;
 
@@ -803,41 +1254,62 @@
 
         const positions =
             new Float32Array(
+
                 particleCount * 3
+
             );
 
 
+
         for (
+
             let i = 0;
+
             i < particleCount;
+
             i++
+
         ) {
 
+
             positions[i * 3] =
+
                 (Math.random() - .5) * 18;
 
+
             positions[i * 3 + 1] =
+
                 (Math.random() - .5) * 10;
 
+
             positions[i * 3 + 2] =
+
                 (Math.random() - .5) * 12;
 
         }
 
 
+
         particleGeometry.setAttribute(
+
             "position",
+
             new THREE.BufferAttribute(
+
                 positions,
+
                 3
+
             )
+
         );
+
 
 
         const particleMaterial =
             new THREE.PointsMaterial({
 
-                color: 0xd6a34a,
+                color: 0xF09000,
 
                 size: .025,
 
@@ -848,49 +1320,70 @@
             });
 
 
+
         const particles =
             new THREE.Points(
+
                 particleGeometry,
+
                 particleMaterial
+
             );
 
 
         scene.add(particles);
 
 
-        /* =========================
+
+        /* =========================================
            MOUSE MOVEMENT
-        ========================= */
+           ========================================= */
 
         let mouseX = 0;
+
         let mouseY = 0;
 
 
+
         window.addEventListener(
+
             "mousemove",
+
             event => {
 
+
                 mouseX =
-                    (event.clientX /
-                    window.innerWidth - .5);
+
+                    (
+                        event.clientX /
+                        window.innerWidth
+                    ) - .5;
+
 
                 mouseY =
-                    (event.clientY /
-                    window.innerHeight - .5);
+
+                    (
+                        event.clientY /
+                        window.innerHeight
+                    ) - .5;
 
             }
+
         );
 
 
-        /* =========================
+
+        /* =========================================
            ANIMATION
-        ========================= */
+           ========================================= */
 
         const clock =
             new THREE.Clock();
 
 
+
         function animate() {
+
 
             requestAnimationFrame(
                 animate
@@ -901,14 +1394,20 @@
                 clock.getElapsedTime();
 
 
+
             /* Main rings */
 
             ring.rotation.z =
                 time * .08;
 
+
             ring.scale.setScalar(
+
                 1 +
-                Math.sin(time * .8) * .025
+                Math.sin(
+                    time * .8
+                ) * .025
+
             );
 
 
@@ -917,15 +1416,22 @@
 
 
             ring2.scale.setScalar(
+
                 1 +
-                Math.sin(time * .5) * .04
+                Math.sin(
+                    time * .5
+                ) * .04
+
             );
+
 
 
             /* Crystals */
 
             crystals.forEach(
+
                 crystal => {
+
 
                     const mesh =
                         crystal.mesh;
@@ -934,18 +1440,24 @@
                     mesh.rotation.x +=
                         crystal.speed * 4;
 
+
                     mesh.rotation.y +=
                         crystal.speed * 5;
 
 
                     mesh.position.y +=
+
                         Math.sin(
+
                             time +
                             crystal.offset
+
                         ) * .0005;
 
                 }
+
             );
+
 
 
             /* Particles */
@@ -955,54 +1467,77 @@
 
 
             particles.rotation.x =
-                Math.sin(time * .1) * .03;
+                Math.sin(
+                    time * .1
+                ) * .03;
+
 
 
             /* Camera reacts subtly
                to mouse movement */
 
             camera.position.x +=
+
                 (
+
                     mouseX * .45 -
                     camera.position.x
+
                 ) * .025;
 
 
             camera.position.y +=
+
                 (
+
                     1.5 -
                     mouseY * .3 -
                     camera.position.y
+
                 ) * .025;
 
 
             camera.lookAt(
+
                 0,
+
                 0,
+
                 0
+
             );
 
 
+
             renderer.render(
+
                 scene,
+
                 camera
+
             );
 
         }
 
 
+
         animate();
 
 
-        /* =========================
+
+        /* =========================================
            RESIZE
-        ========================= */
+           ========================================= */
 
         window.addEventListener(
+
             "resize",
+
             () => {
 
+
                 camera.aspect =
+
                     window.innerWidth /
                     window.innerHeight;
 
@@ -1011,24 +1546,32 @@
 
 
                 renderer.setSize(
+
                     window.innerWidth,
+
                     window.innerHeight
+
                 );
 
             }
+
         );
 
 
-        /* =========================
+
+        /* =========================================
            YEAR
-        ========================= */
+           ========================================= */
 
         document
             .getElementById("year")
             .textContent =
             new Date().getFullYear();
 
+
     </script>
 
+
 </body>
+
 </html>
