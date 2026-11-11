@@ -1,33 +1,826 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bond Breaker Studios | Oh Snap! They're Back!</title>
-<meta name="description" content="Build your defenses, survive monster waves and protect your castle in the upcoming tower-defense game from Bond Breaker Studios.">
-<meta name="theme-color" content="#17151a">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#17151a;--bg2:#211b22;--panel:#29232a;--cream:#f1e3c7;--muted:#c2b5a5;--gold:#d6a34a;--red:#a83d32;--red2:#c6533e;--line:rgba(235,207,163,.18);--max:1180px}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--cream);font-family:"DM Sans",sans-serif;line-height:1.65}a{color:inherit;text-decoration:none}img,video{display:block;max-width:100%}.wrap{width:min(var(--max),calc(100% - 42px));margin:auto}.eyebrow{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700}.display{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;line-height:.9;letter-spacing:.015em}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(4rem,10vw,8.5rem);margin:14px 0 20px;font-weight:900}h2{font-size:clamp(2.8rem,6vw,5rem);margin:10px 0 18px;font-weight:800}h3{font-size:1.45rem;margin-bottom:8px}.muted{color:var(--muted)}
-.topbar{height:82px;position:absolute;inset:0 0 auto;z-index:5;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(20,17,22,.62);backdrop-filter:blur(12px)}.nav{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}.brand{display:flex;align-items:center;gap:12px;font-family:"Barlow Condensed",sans-serif;font-weight:900;line-height:.85;text-transform:uppercase;font-size:1.35rem;letter-spacing:.04em}.brand-mark{width:35px;height:35px;background:var(--red);clip-path:polygon(0 0,100% 20%,67% 50%,100% 80%,0 100%,27% 50%)}.brand small{display:block;font:600 .55rem "DM Sans",sans-serif;letter-spacing:.38em;margin-top:7px;color:var(--gold)}.links{display:flex;gap:26px;font-size:.88rem;color:#e1d6c8}.links a:hover{color:var(--gold)}.social{display:flex;gap:14px;color:var(--muted);font-size:.83rem}.social a:hover{color:var(--gold)}
-.hero{min-height:760px;padding:150px 0 80px;position:relative;overflow:hidden;display:flex;align-items:center;background:radial-gradient(ellipse at 78% 38%,rgba(137,65,69,.28),transparent 44%),linear-gradient(110deg,#17151a 0%,#241a25 55%,#34212a 100%)}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,21,26,.98) 0%,rgba(23,21,26,.84) 34%,rgba(23,21,26,.18) 76%,rgba(23,21,26,.32) 100%),url("assets/gameplay-main.png") center right/cover no-repeat;opacity:.88}.hero:after{content:"";position:absolute;inset:auto 0 0;height:170px;background:linear-gradient(transparent,var(--bg))}.hero-content{position:relative;z-index:2;max-width:650px}.hero h1{max-width:700px;text-shadow:0 5px 25px #000}.hero h1 span{color:var(--gold)}.hero-lead{font:italic clamp(1.25rem,2vw,1.7rem) "IM Fell English",serif;color:#f3d8a7;margin-bottom:16px}.hero-copy{max-width:540px;color:#d4c7b8;font-size:1.04rem}.actions{display:flex;flex-wrap:wrap;gap:13px;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:13px 22px;border-radius:5px;font-weight:700;font-size:.9rem;transition:.2s}.btn-primary{background:var(--red2);color:#fff4e2;box-shadow:0 8px 24px rgba(130,40,34,.25)}.btn-primary:hover{background:#dc624a;transform:translateY(-2px)}.btn-ghost{border:1px solid rgba(241,227,199,.4);color:var(--cream)}.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}.hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px}.tag{border:1px solid rgba(241,227,199,.22);border-radius:999px;padding:6px 12px;color:#d8c7b1;font-size:.74rem}
-section{padding:94px 0;position:relative}.section-head{text-align:center;max-width:760px;margin:0 auto 44px}.section-head p{color:var(--muted);font-size:1.02rem}.section-title{font-family:"Barlow Condensed",sans-serif;text-transform:uppercase;font-size:clamp(2.7rem,5.5vw,4.4rem);line-height:.95;margin:10px 0 15px}.section-title span{color:var(--gold)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}.copy-block p{color:var(--muted);font-size:1.02rem}.copy-block .lead{font:italic 1.45rem "IM Fell English",serif;color:var(--cream)}.pill-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.pill{background:rgba(168,61,50,.16);border:1px solid rgba(214,163,74,.22);color:#e8c88f;padding:7px 12px;border-radius:99px;font-size:.78rem}.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.feature{background:linear-gradient(145deg,#2d252b,#211c22);border:1px solid var(--line);padding:28px;border-radius:9px;min-height:205px}.feature .icon{font-size:1.8rem;color:var(--gold);margin-bottom:15px}.feature p{color:var(--muted);font-size:.92rem;margin:0}
-.gallery{background:linear-gradient(180deg,#211b22,#17151a)}.gallery-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;align-items:stretch}.shot{border:1px solid rgba(214,163,74,.32);padding:8px;background:#242027;border-radius:9px;overflow:hidden;box-shadow:0 18px 45px rgba(0,0,0,.24)}.shot img{width:100%;height:100%;min-height:250px;object-fit:cover;border-radius:4px}.shot-stack{display:grid;grid-template-rows:1fr 1fr;gap:18px}.shot-stack .shot img{min-height:180px}.shot-caption{padding:12px 8px 5px;color:#e5d2b2;font-weight:700;font-size:.9rem}.gameplay{background:#211b22}.video-shell{max-width:1000px;margin:auto;border:1px solid rgba(214,163,74,.4);padding:9px;background:#17151a;border-radius:10px;box-shadow:0 25px 60px rgba(0,0,0,.35)}video{width:100%;aspect-ratio:1.983/1;object-fit:contain;background:#09080b;border-radius:5px}.video-caption{text-align:center;padding:18px 8px 8px;color:var(--muted);font-size:.9rem}
-.studio{background:linear-gradient(180deg,#17151a,#241c22)}.studio-card{max-width:900px;margin:auto;padding:40px;border:1px solid var(--line);background:rgba(43,34,40,.7);border-radius:10px}.studio-card p{color:var(--muted)}.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.team-card{padding:28px 22px;text-align:center;border:1px solid var(--line);background:#211c22;border-radius:9px}.avatar{width:82px;height:82px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#9b493b,#49303b);border:2px solid rgba(214,163,74,.5);font-family:"Barlow Condensed",sans-serif;font-size:2rem;font-weight:800;color:#f6dfb6}.team-card .role{color:var(--gold);font-size:.82rem;font-weight:700;margin-bottom:12px}.team-card p{color:var(--muted);font-size:.88rem;margin:0}.contact-box{max-width:720px;margin:auto;text-align:center;padding:42px;border:1px solid var(--line);background:#211c22;border-radius:10px}.email{display:inline-block;margin-top:12px;color:var(--gold);font-weight:700;overflow-wrap:anywhere}.social-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:800px;margin:30px auto 0}.social-card{border:1px solid var(--line);border-radius:8px;padding:20px;text-align:center;background:#211c22}.social-card strong{display:block;margin-bottom:4px}.social-card span{font-size:.8rem;color:var(--muted)}footer{padding:28px 0;border-top:1px solid var(--line);background:#121014;color:#9e9285;font-size:.82rem}.footer-row{display:flex;justify-content:space-between;gap:20px;align-items:center}.footer-brand{font-family:"Barlow Condensed",sans-serif;color:var(--cream);font-size:1.2rem;font-weight:800;letter-spacing:.04em}
-@media(max-width:850px){.links{gap:14px}.social{display:none}.hero{min-height:700px}.hero:before{background:linear-gradient(90deg,rgba(23,21,26,.96),rgba(23,21,26,.68)),url("assets/gameplay-main.png") center/cover}.intro-grid{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:560px){.wrap{width:min(100% - 28px,var(--max))}.topbar{height:auto;min-height:74px}.nav{padding:14px 0;align-items:flex-start}.links{justify-content:flex-end;flex-wrap:wrap;gap:6px 12px;font-size:.75rem;max-width:190px}.brand{font-size:1.05rem}.brand-mark{width:29px;height:29px}.hero{min-height:720px;padding-top:140px}.hero h1{font-size:4.2rem}.hero-copy{font-size:.95rem}section{padding:70px 0}.feature-grid,.team-grid,.social-cards{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr}.shot-stack{grid-template-columns:1fr 1fr;grid-template-rows:1fr}.shot img{min-height:190px}.shot-stack .shot img{min-height:130px}.studio-card,.contact-box{padding:26px 20px}.footer-row{flex-direction:column;text-align:center}}
-</style></head>
-<body>
-<header class="topbar"><div class="wrap nav"><a class="brand" href="#home"><span class="brand-mark"></span><span>Bond Breaker<small>Studios</small></span></a><nav class="links"><a href="#home">Home</a><a href="#game">Game</a><a href="#screenshots">Screenshots</a><a href="#studio">Studio</a><a href="#team">Team</a><a href="#contact">Contact</a></nav><div class="social"><a href="https://www.youtube.com/@BondBreakerStudios" target="_blank" rel="noopener">YouTube</a><a href="https://www.instagram.com/bondbreakerig?igsh=Nmwya3gzeHo4OGdz" target="_blank" rel="noopener">Instagram</a><a href="https://x.com/BondBreakerX" target="_blank" rel="noopener">X</a></div></div></header>
-<main>
-<section class="hero" id="home"><div class="wrap hero-content"><div class="eyebrow">Bond Breaker Studios presents · Upcoming game</div><h1 class="display">OH SNAP!<br><span>THEY'RE BACK.</span></h1><p class="hero-lead">Build. Defend. Hold the line.</p><p class="hero-copy">The Deepborn have clawed their way back. Mutated, vengeful and completely unruly, they're heading straight for your castles. Build your defenses and stop the horde before it's too late.</p><div class="actions"><a class="btn btn-primary" href="#game">Discover the game</a><a class="btn btn-ghost" href="#trailer">Watch gameplay</a></div><div class="hero-tags"><span class="tag">Mobile · Android</span><span class="tag">Tower Defense</span><span class="tag">Strategy</span><span class="tag">Fantasy</span></div></div></section>
-<section id="game"><div class="wrap intro-grid"><div class="copy-block"><div class="eyebrow">The story so far</div><h2 class="section-title">Your castle.<br><span>Their target.</span></h2><p class="lead">Centuries ago, the Deepborn were banished beneath the earth. Now the ancient seals are crumbling — and the creatures are back.</p><p>They're strange, they're stubborn, and there are far too many of them. Your job is simple: build a line of defense, make every coin count and keep the horde away from your castle.</p><p>Place defenses around the path, survive increasingly demanding waves and protect your stronghold.</p><div class="pill-row"><span class="pill">Wave-based defense</span><span class="pill">Strategic placement</span><span class="pill">Monster horde</span><span class="pill">Castle protection</span></div></div><div class="shot"><img src="assets/gameplay-detail.png" alt="Isometric gameplay view of the island battlefield"></div></div></section>
-<section class="gallery" id="screenshots"><div class="wrap"><div class="section-head"><div class="eyebrow">A look inside the battlefield</div><h2 class="section-title">See the game in <span>action</span></h2><p>Build your defenses, face the incoming waves and send the Deepborn packing.</p></div><div class="gallery-grid"><article class="shot"><img src="assets/gameplay-main.png" alt="Gameplay screenshot showing the island, path, enemies and defensive towers"><div class="shot-caption">Hold the line against the horde</div></article><div class="shot-stack"><article class="shot"><img src="assets/victory-screen.png" alt="Victory screen showing Monsters Stopped"><div class="shot-caption">Stop the monsters</div></article><article class="shot"><img src="assets/gameplay-detail.png" alt="Alternate gameplay view of the island battlefield"><div class="shot-caption">Every wave is a new challenge</div></article></div></div></div></section>
-<section class="gameplay" id="trailer"><div class="wrap"><div class="section-head"><div class="eyebrow">See it in motion</div><h2 class="section-title">Gameplay <span>preview</span></h2><p>Take a first look at the game in motion.</p></div><div class="video-shell"><video controls playsinline preload="metadata"><source src="assets/gameplay-trailer.mp4" type="video/mp4">Your browser does not support the video element.</video><div class="video-caption">Gameplay preview · Bond Breaker Studios</div></div></div></section>
-<section class="studio" id="studio"><div class="wrap"><div class="section-head"><div class="eyebrow">Who we are</div><h2 class="section-title">Bond Breaker <span>Studios</span></h2><p>Small team. Big ideas. Games built with curiosity, commitment and a healthy amount of stubbornness.</p></div><div class="studio-card"><h3>Our vision</h3><p>Bond Breaker Studios began with three friends, a shared love for games and the idea of creating something of our own. We are an independent team building worlds, characters and gameplay experiences together.</p><p>Our upcoming project is a mobile tower-defense game that brings together approachable strategy, playful monster designs and a fantasy world built around defending your castle.</p><div class="pill-row"><span class="pill">Independent game studio</span><span class="pill">Mobile games</span><span class="pill">Made with passion</span></div></div></div></section>
-<section id="team"><div class="wrap"><div class="section-head"><div class="eyebrow">The people behind the game</div><h2 class="section-title">Meet the <span>Team</span></h2><p>Three friends working together to bring the next Bond Breaker game to life.</p></div><div class="team-grid"><article class="team-card"><div class="avatar">F</div><h3>Falgun</h3><div class="role">Developer</div><p>Building the code, gameplay systems and technical foundations that bring the game together.</p></article><article class="team-card"><div class="avatar">A</div><h3>Ajinkya</h3><div class="role">3D Artist &amp; Designer</div><p>Creating the visual world — from characters and props to environments, art direction and presentation.</p></article><article class="team-card"><div class="avatar">T</div><h3>Tejas</h3><div class="role">Level Designer</div><p>Designing the battle spaces, enemy routes and level flow that shape each defensive challenge.</p></article>
-          <article class="team-card"><div class="avatar">S</div><h3>Soham</h3><div class="role">UI/UX Designer</div><p>Alongside his full-time UI/UX role, Soham brings his design skills to Bond Breaker Studios, shaping clear, intuitive interfaces and a smoother player experience.</p></article></div></div></section>
-<section id="contact"><div class="wrap"><div class="contact-box"><div class="eyebrow">Press · Partnerships · Just saying hello</div><h2 class="section-title">Get in <span>Touch</span></h2><p class="muted">Want to follow development, collaborate with us or share feedback? We'd love to hear from you.</p><a class="email" href="mailto:bondbreakerstudios@gmail.com">bondbreakerstudios@gmail.com</a><div class="social-cards"><a class="social-card" href="https://www.youtube.com/@BondBreakerStudios" target="_blank" rel="noopener"><strong>YouTube</strong><span>Gameplay, trailers and dev updates</span></a><a class="social-card" href="https://www.instagram.com/bondbreakerig?igsh=Nmwya3gzeHo4OGdz" target="_blank" rel="noopener"><strong>Instagram</strong><span>Art, screenshots and progress</span></a><a class="social-card" href="https://x.com/BondBreakerX" target="_blank" rel="noopener"><strong>X</strong><span>News and announcements</span></a></div></div></div></section>
-</main><footer><div class="wrap footer-row"><div><div class="footer-brand">BOND BREAKER STUDIOS</div><div>Crafting games, one world at a time.</div></div><div>© <span id="year"></span> Bond Breaker Studios. All rights reserved.</div></div></footer><script>document.getElementById("year").textContent=new Date().getFullYear();</script>
-</body></html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Bond Breaker Studios | Oh Snap! They're Back!</title>
+        <meta
+            name="description"
+            content="Build your defenses, survive monster waves and protect your castle in the upcoming tower-defense game from Bond Breaker Studios."
+        />
+        <meta name="theme-color" content="#17151a" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;500;600;700&family=IM+Fell+English:ital@0;1&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --bg: #17151a;
+                --bg2: #211b22;
+                --panel: #29232a;
+                --cream: #f1e3c7;
+                --muted: #c2b5a5;
+                --gold: #d6a34a;
+                --red: #a83d32;
+                --red2: #c6533e;
+                --line: rgba(235, 207, 163, 0.18);
+                --max: 1180px;
+            }
+            * {
+                box-sizing: border-box;
+            }
+            html {
+                scroll-behavior: smooth;
+            }
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--cream);
+                font-family: "DM Sans", sans-serif;
+                line-height: 1.65;
+            }
+            a {
+                color: inherit;
+                text-decoration: none;
+            }
+            img,
+            video {
+                display: block;
+                max-width: 100%;
+            }
+            .wrap {
+                width: min(var(--max), calc(100% - 42px));
+                margin: auto;
+            }
+            .eyebrow {
+                font-size: 0.72rem;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
+                color: var(--gold);
+                font-weight: 700;
+            }
+            .display {
+                font-family: "Barlow Condensed", sans-serif;
+                text-transform: uppercase;
+                line-height: 0.9;
+                letter-spacing: 0.015em;
+            }
+            h1,
+            h2,
+            h3,
+            p {
+                margin-top: 0;
+            }
+            h1 {
+                font-size: clamp(4rem, 10vw, 8.5rem);
+                margin: 14px 0 20px;
+                font-weight: 900;
+            }
+            h2 {
+                font-size: clamp(2.8rem, 6vw, 5rem);
+                margin: 10px 0 18px;
+                font-weight: 800;
+            }
+            h3 {
+                font-size: 1.45rem;
+                margin-bottom: 8px;
+            }
+            .muted {
+                color: var(--muted);
+            }
+            .topbar {
+                height: 82px;
+                position: absolute;
+                inset: 0 0 auto;
+                z-index: 5;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+                background: rgba(20, 17, 22, 0.62);
+                backdrop-filter: blur(12px);
+            }
+            .nav {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 24px;
+            }
+            .brand {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-family: "Barlow Condensed", sans-serif;
+                font-weight: 900;
+                line-height: 0.85;
+                text-transform: uppercase;
+                font-size: 1.35rem;
+                letter-spacing: 0.04em;
+            }
+            .brand-mark {
+                width: 35px;
+                height: 35px;
+                background: var(--red);
+                clip-path: polygon(0 0, 100% 20%, 67% 50%, 100% 80%, 0 100%, 27% 50%);
+            }
+            .brand small {
+                display: block;
+                font:
+                    600 0.55rem "DM Sans",
+                    sans-serif;
+                letter-spacing: 0.38em;
+                margin-top: 7px;
+                color: var(--gold);
+            }
+            .links {
+                display: flex;
+                gap: 26px;
+                font-size: 0.88rem;
+                color: #e1d6c8;
+            }
+            .links a:hover {
+                color: var(--gold);
+            }
+            .social {
+                display: flex;
+                gap: 14px;
+                color: var(--muted);
+                font-size: 0.83rem;
+            }
+            .social a:hover {
+                color: var(--gold);
+            }
+            .hero {
+                min-height: 760px;
+                padding: 150px 0 80px;
+                position: relative;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                background: radial-gradient(ellipse at 78% 38%, rgba(137, 65, 69, 0.28), transparent 44%),
+                    linear-gradient(110deg, #17151a 0%, #241a25 55%, #34212a 100%);
+            }
+            .hero:before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background:
+                    linear-gradient(
+                        90deg,
+                        rgba(23, 21, 26, 0.98) 0%,
+                        rgba(23, 21, 26, 0.84) 34%,
+                        rgba(23, 21, 26, 0.18) 76%,
+                        rgba(23, 21, 26, 0.32) 100%
+                    ),
+                    url("assets/gameplay-main.png") center right/cover no-repeat;
+                opacity: 0.88;
+            }
+            .hero:after {
+                content: "";
+                position: absolute;
+                inset: auto 0 0;
+                height: 170px;
+                background: linear-gradient(transparent, var(--bg));
+            }
+            .hero-content {
+                position: relative;
+                z-index: 2;
+                max-width: 650px;
+            }
+            .hero h1 {
+                max-width: 700px;
+                text-shadow: 0 5px 25px #000;
+            }
+            .hero h1 span {
+                color: var(--gold);
+            }
+            .hero-lead {
+                font:
+                    italic clamp(1.25rem, 2vw, 1.7rem) "IM Fell English",
+                    serif;
+                color: #f3d8a7;
+                margin-bottom: 16px;
+            }
+            .hero-copy {
+                max-width: 540px;
+                color: #d4c7b8;
+                font-size: 1.04rem;
+            }
+            .actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 13px;
+                margin-top: 30px;
+            }
+            .btn {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 13px 22px;
+                border-radius: 5px;
+                font-weight: 700;
+                font-size: 0.9rem;
+                transition: 0.2s;
+            }
+            .btn-primary {
+                background: var(--red2);
+                color: #fff4e2;
+                box-shadow: 0 8px 24px rgba(130, 40, 34, 0.25);
+            }
+            .btn-primary:hover {
+                background: #dc624a;
+                transform: translateY(-2px);
+            }
+            .btn-ghost {
+                border: 1px solid rgba(241, 227, 199, 0.4);
+                color: var(--cream);
+            }
+            .btn-ghost:hover {
+                border-color: var(--gold);
+                color: var(--gold);
+            }
+            .hero-tags {
+                display: flex;
+                gap: 9px;
+                flex-wrap: wrap;
+                margin-top: 28px;
+            }
+            .tag {
+                border: 1px solid rgba(241, 227, 199, 0.22);
+                border-radius: 999px;
+                padding: 6px 12px;
+                color: #d8c7b1;
+                font-size: 0.74rem;
+            }
+            section {
+                padding: 94px 0;
+                position: relative;
+            }
+            .section-head {
+                text-align: center;
+                max-width: 760px;
+                margin: 0 auto 44px;
+            }
+            .section-head p {
+                color: var(--muted);
+                font-size: 1.02rem;
+            }
+            .section-title {
+                font-family: "Barlow Condensed", sans-serif;
+                text-transform: uppercase;
+                font-size: clamp(2.7rem, 5.5vw, 4.4rem);
+                line-height: 0.95;
+                margin: 10px 0 15px;
+            }
+            .section-title span {
+                color: var(--gold);
+            }
+            .intro-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 44px;
+                align-items: center;
+            }
+            .copy-block p {
+                color: var(--muted);
+                font-size: 1.02rem;
+            }
+            .copy-block .lead {
+                font:
+                    italic 1.45rem "IM Fell English",
+                    serif;
+                color: var(--cream);
+            }
+            .pill-row {
+                display: flex;
+                gap: 9px;
+                flex-wrap: wrap;
+                margin-top: 20px;
+            }
+            .pill {
+                background: rgba(168, 61, 50, 0.16);
+                border: 1px solid rgba(214, 163, 74, 0.22);
+                color: #e8c88f;
+                padding: 7px 12px;
+                border-radius: 99px;
+                font-size: 0.78rem;
+            }
+            .feature-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+            }
+            .feature {
+                background: linear-gradient(145deg, #2d252b, #211c22);
+                border: 1px solid var(--line);
+                padding: 28px;
+                border-radius: 9px;
+                min-height: 205px;
+            }
+            .feature .icon {
+                font-size: 1.8rem;
+                color: var(--gold);
+                margin-bottom: 15px;
+            }
+            .feature p {
+                color: var(--muted);
+                font-size: 0.92rem;
+                margin: 0;
+            }
+            .gallery {
+                background: linear-gradient(180deg, #211b22, #17151a);
+            }
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: 1.15fr 0.85fr;
+                gap: 18px;
+                align-items: stretch;
+            }
+            .shot {
+                border: 1px solid rgba(214, 163, 74, 0.32);
+                padding: 8px;
+                background: #242027;
+                border-radius: 9px;
+                overflow: hidden;
+                box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+            }
+            .shot img {
+                width: 100%;
+                height: 100%;
+                min-height: 250px;
+                object-fit: cover;
+                border-radius: 4px;
+            }
+            .shot-stack {
+                display: grid;
+                grid-template-rows: 1fr 1fr;
+                gap: 18px;
+            }
+            .shot-stack .shot img {
+                min-height: 180px;
+            }
+            .shot-caption {
+                padding: 12px 8px 5px;
+                color: #e5d2b2;
+                font-weight: 700;
+                font-size: 0.9rem;
+            }
+            .gameplay {
+                background: #211b22;
+            }
+            .video-shell {
+                max-width: 1000px;
+                margin: auto;
+                border: 1px solid rgba(214, 163, 74, 0.4);
+                padding: 9px;
+                background: #17151a;
+                border-radius: 10px;
+                box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+            }
+            video {
+                width: 100%;
+                aspect-ratio: 1.983/1;
+                object-fit: contain;
+                background: #09080b;
+                border-radius: 5px;
+            }
+            .video-caption {
+                text-align: center;
+                padding: 18px 8px 8px;
+                color: var(--muted);
+                font-size: 0.9rem;
+            }
+            .studio {
+                background: linear-gradient(180deg, #17151a, #241c22);
+            }
+            .studio-card {
+                max-width: 900px;
+                margin: auto;
+                padding: 40px;
+                border: 1px solid var(--line);
+                background: rgba(43, 34, 40, 0.7);
+                border-radius: 10px;
+            }
+            .studio-card p {
+                color: var(--muted);
+            }
+            .team-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+            .team-card {
+                padding: 28px 22px;
+                text-align: center;
+                border: 1px solid var(--line);
+                background: #211c22;
+                border-radius: 9px;
+            }
+            .avatar {
+                width: 82px;
+                height: 82px;
+                margin: 0 auto 16px;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                background: linear-gradient(145deg, #9b493b, #49303b);
+                border: 2px solid rgba(214, 163, 74, 0.5);
+                font-family: "Barlow Condensed", sans-serif;
+                font-size: 2rem;
+                font-weight: 800;
+                color: #f6dfb6;
+            }
+            .team-card .role {
+                color: var(--gold);
+                font-size: 0.82rem;
+                font-weight: 700;
+                margin-bottom: 12px;
+            }
+            .team-card p {
+                color: var(--muted);
+                font-size: 0.88rem;
+                margin: 0;
+            }
+            .contact-box {
+                max-width: 720px;
+                margin: auto;
+                text-align: center;
+                padding: 42px;
+                border: 1px solid var(--line);
+                background: #211c22;
+                border-radius: 10px;
+            }
+            .email {
+                display: inline-block;
+                margin-top: 12px;
+                color: var(--gold);
+                font-weight: 700;
+                overflow-wrap: anywhere;
+            }
+            .social-cards {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 14px;
+                max-width: 800px;
+                margin: 30px auto 0;
+            }
+            .social-card {
+                border: 1px solid var(--line);
+                border-radius: 8px;
+                padding: 20px;
+                text-align: center;
+                background: #211c22;
+            }
+            .social-card strong {
+                display: block;
+                margin-bottom: 4px;
+            }
+            .social-card span {
+                font-size: 0.8rem;
+                color: var(--muted);
+            }
+            footer {
+                padding: 28px 0;
+                border-top: 1px solid var(--line);
+                background: #121014;
+                color: #9e9285;
+                font-size: 0.82rem;
+            }
+            .footer-row {
+                display: flex;
+                justify-content: space-between;
+                gap: 20px;
+                align-items: center;
+            }
+            .footer-brand {
+                font-family: "Barlow Condensed", sans-serif;
+                color: var(--cream);
+                font-size: 1.2rem;
+                font-weight: 800;
+                letter-spacing: 0.04em;
+            }
+            @media (max-width: 850px) {
+                .links {
+                    gap: 14px;
+                }
+                .social {
+                    display: none;
+                }
+                .hero {
+                    min-height: 700px;
+                }
+                .hero:before {
+                    background:
+                        linear-gradient(90deg, rgba(23, 21, 26, 0.96), rgba(23, 21, 26, 0.68)),
+                        url("assets/gameplay-main.png") center/cover;
+                }
+                .intro-grid {
+                    grid-template-columns: 1fr;
+                }
+                .feature-grid {
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+            @media (max-width: 560px) {
+                .wrap {
+                    width: min(100% - 28px, var(--max));
+                }
+                .topbar {
+                    height: auto;
+                    min-height: 74px;
+                }
+                .nav {
+                    padding: 14px 0;
+                    align-items: flex-start;
+                }
+                .links {
+                    justify-content: flex-end;
+                    flex-wrap: wrap;
+                    gap: 6px 12px;
+                    font-size: 0.75rem;
+                    max-width: 190px;
+                }
+                .brand {
+                    font-size: 1.05rem;
+                }
+                .brand-mark {
+                    width: 29px;
+                    height: 29px;
+                }
+                .hero {
+                    min-height: 720px;
+                    padding-top: 140px;
+                }
+                .hero h1 {
+                    font-size: 4.2rem;
+                }
+                .hero-copy {
+                    font-size: 0.95rem;
+                }
+                section {
+                    padding: 70px 0;
+                }
+                .feature-grid,
+                .team-grid,
+                .social-cards {
+                    grid-template-columns: 1fr;
+                }
+                .gallery-grid {
+                    grid-template-columns: 1fr;
+                }
+                .shot-stack {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr;
+                }
+                .shot img {
+                    min-height: 190px;
+                }
+                .shot-stack .shot img {
+                    min-height: 130px;
+                }
+                .studio-card,
+                .contact-box {
+                    padding: 26px 20px;
+                }
+                .footer-row {
+                    flex-direction: column;
+                    text-align: center;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="wrap nav">
+                <a class="brand" href="#home">
+                    <img src="logo.png" alt="Bond Breaker Studios Logo" class="brand-logo" />
+                </a>
+                <nav class="links">
+                    <a href="#home">Home</a><a href="#game">Game</a><a href="#screenshots">Screenshots</a
+                    ><a href="#studio">Studio</a><a href="#team">Team</a><a href="#contact">Contact</a>
+                </nav>
+                <div class="social">
+                    <a href="https://www.youtube.com/@BondBreakerStudios" target="_blank" rel="noopener">YouTube</a
+                    ><a
+                        href="https://www.instagram.com/bondbreakerig?igsh=Nmwya3gzeHo4OGdz"
+                        target="_blank"
+                        rel="noopener"
+                        >Instagram</a
+                    ><a href="https://x.com/BondBreakerX" target="_blank" rel="noopener">X</a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="hero" id="home">
+                <div class="wrap hero-content">
+                    <div class="eyebrow">Bond Breaker Studios presents · Upcoming game</div>
+                    <h1 class="display">OH SNAP!<br /><span>THEY'RE BACK.</span></h1>
+                    <p class="hero-lead">Build. Defend. Hold the line.</p>
+                    <p class="hero-copy">
+                        The Deepborn have clawed their way back. Mutated, vengeful and completely unruly, they're
+                        heading straight for your castles. Build your defenses and stop the horde before it's too late.
+                    </p>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="#game">Discover the game</a
+                        ><a class="btn btn-ghost" href="#trailer">Watch gameplay</a>
+                    </div>
+                    <div class="hero-tags">
+                        <span class="tag">Mobile · Android</span><span class="tag">Tower Defense</span
+                        ><span class="tag">Strategy</span><span class="tag">Fantasy</span>
+                    </div>
+                </div>
+            </section>
+            <section id="game">
+                <div class="wrap intro-grid">
+                    <div class="copy-block">
+                        <div class="eyebrow">The story so far</div>
+                        <h2 class="section-title">Your castle.<br /><span>Their target.</span></h2>
+                        <p class="lead">
+                            Centuries ago, the Deepborn were banished beneath the earth. Now the ancient seals are
+                            crumbling — and the creatures are back.
+                        </p>
+                        <p>
+                            They're strange, they're stubborn, and there are far too many of them. Your job is simple:
+                            build a line of defense, make every coin count and keep the horde away from your castle.
+                        </p>
+                        <p>
+                            Place defenses around the path, survive increasingly demanding waves and protect your
+                            stronghold.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Wave-based defense</span><span class="pill">Strategic placement</span
+                            ><span class="pill">Monster horde</span><span class="pill">Castle protection</span>
+                        </div>
+                    </div>
+                    <div class="shot">
+                        <img src="assets/gameplay-detail.png" alt="Isometric gameplay view of the island battlefield" />
+                    </div>
+                </div>
+            </section>
+            <section class="gallery" id="screenshots">
+                <div class="wrap">
+                    <div class="section-head">
+                        <div class="eyebrow">A look inside the battlefield</div>
+                        <h2 class="section-title">See the game in <span>action</span></h2>
+                        <p>Build your defenses, face the incoming waves and send the Deepborn packing.</p>
+                    </div>
+                    <div class="gallery-grid">
+                        <article class="shot">
+                            <img
+                                src="assets/gameplay-main.png"
+                                alt="Gameplay screenshot showing the island, path, enemies and defensive towers"
+                            />
+                            <div class="shot-caption">Hold the line against the horde</div>
+                        </article>
+                        <div class="shot-stack">
+                            <article class="shot">
+                                <img src="assets/victory-screen.png" alt="Victory screen showing Monsters Stopped" />
+                                <div class="shot-caption">Stop the monsters</div>
+                            </article>
+                            <article class="shot">
+                                <img
+                                    src="assets/gameplay-detail.png"
+                                    alt="Alternate gameplay view of the island battlefield"
+                                />
+                                <div class="shot-caption">Every wave is a new challenge</div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="gameplay" id="trailer">
+                <div class="wrap">
+                    <div class="section-head">
+                        <div class="eyebrow">See it in motion</div>
+                        <h2 class="section-title">Gameplay <span>preview</span></h2>
+                        <p>Take a first look at the game in motion.</p>
+                    </div>
+                    <div class="video-shell">
+                        <video controls playsinline preload="metadata">
+                            <source src="assets/gameplay-trailer.mp4" type="video/mp4" />
+                            Your browser does not support the video element.
+                        </video>
+                        <div class="video-caption">Gameplay preview · Bond Breaker Studios</div>
+                    </div>
+                </div>
+            </section>
+            <section class="studio" id="studio">
+                <div class="wrap">
+                    <div class="section-head">
+                        <div class="eyebrow">Who we are</div>
+                        <h2 class="section-title">Bond Breaker <span>Studios</span></h2>
+                        <p>
+                            Small team. Big ideas. Games built with curiosity, commitment and a healthy amount of
+                            stubbornness.
+                        </p>
+                    </div>
+                    <div class="studio-card">
+                        <h3>Our vision</h3>
+                        <p>
+                            Bond Breaker Studios began with three friends, a shared love for games and the idea of
+                            creating something of our own. We are an independent team building worlds, characters and
+                            gameplay experiences together.
+                        </p>
+                        <p>
+                            Our upcoming project is a mobile tower-defense game that brings together approachable
+                            strategy, playful monster designs and a fantasy world built around defending your castle.
+                        </p>
+                        <div class="pill-row">
+                            <span class="pill">Independent game studio</span><span class="pill">Mobile games</span
+                            ><span class="pill">Made with passion</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="team">
+                <div class="wrap">
+                    <div class="section-head">
+                        <div class="eyebrow">The people behind the game</div>
+                        <h2 class="section-title">Meet the <span>Team</span></h2>
+                        <p>Three friends working together to bring the next Bond Breaker game to life.</p>
+                    </div>
+                    <div class="team-grid">
+                        <article class="team-card">
+                            <div class="avatar">F</div>
+                            <h3>Falgun</h3>
+                            <div class="role">Developer</div>
+                            <p>
+                                Building the code, gameplay systems and technical foundations that bring the game
+                                together.
+                            </p>
+                        </article>
+                        <article class="team-card">
+                            <div class="avatar">A</div>
+                            <h3>Ajinkya</h3>
+                            <div class="role">3D Artist &amp; Designer</div>
+                            <p>
+                                Creating the visual world — from characters and props to environments, art direction and
+                                presentation.
+                            </p>
+                        </article>
+                        <article class="team-card">
+                            <div class="avatar">T</div>
+                            <h3>Tejas</h3>
+                            <div class="role">Level Designer</div>
+                            <p>
+                                Designing the battle spaces, enemy routes and level flow that shape each defensive
+                                challenge.
+                            </p>
+                        </article>
+                        <article class="team-card">
+                            <div class="avatar">S</div>
+                            <h3>Soham</h3>
+                            <div class="role">UI/UX Designer</div>
+                            <p>
+                                Alongside his full-time UI/UX role, Soham brings his design skills to Bond Breaker
+                                Studios, shaping clear, intuitive interfaces and a smoother player experience.
+                            </p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <section id="contact">
+                <div class="wrap">
+                    <div class="contact-box">
+                        <div class="eyebrow">Press · Partnerships · Just saying hello</div>
+                        <h2 class="section-title">Get in <span>Touch</span></h2>
+                        <p class="muted">
+                            Want to follow development, collaborate with us or share feedback? We'd love to hear from
+                            you.
+                        </p>
+                        <a class="email" href="mailto:bondbreakerstudios@gmail.com">bondbreakerstudios@gmail.com</a>
+                        <div class="social-cards">
+                            <a
+                                class="social-card"
+                                href="https://www.youtube.com/@BondBreakerStudios"
+                                target="_blank"
+                                rel="noopener"
+                                ><strong>YouTube</strong><span>Gameplay, trailers and dev updates</span></a
+                            ><a
+                                class="social-card"
+                                href="https://www.instagram.com/bondbreakerig?igsh=Nmwya3gzeHo4OGdz"
+                                target="_blank"
+                                rel="noopener"
+                                ><strong>Instagram</strong><span>Art, screenshots and progress</span></a
+                            ><a class="social-card" href="https://x.com/BondBreakerX" target="_blank" rel="noopener"
+                                ><strong>X</strong><span>News and announcements</span></a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="wrap footer-row">
+                <div>
+                    <div class="footer-brand">BOND BREAKER STUDIOS</div>
+                    <div>Crafting games, one world at a time.</div>
+                </div>
+                <div>© <span id="year"></span> Bond Breaker Studios. All rights reserved.</div>
+            </div>
+        </footer>
+        <script>
+            document.getElementById("year").textContent = new Date().getFullYear();
+        </script>
+    </body>
+</html>
